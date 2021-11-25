@@ -1,0 +1,28 @@
+name: Push To NuGet
+
+on:
+  push:
+    tags:        
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Update NuGet package
+    steps:
+
+      - uses: actions/checkout@v2
+      
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x'
+          include-prerelease: true
+          
+      - name: Dotnet Restore
+        run: dotnet restore
+      
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Push generated package to GitHub registry
+        run: dotnet nuget push "**/*.nupkg" --api-key ${{secrets.NuGet_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols true
