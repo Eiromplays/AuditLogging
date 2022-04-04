@@ -1,5 +1,5 @@
-# WARNING: THIS PACKAGE HAS BEEN DEPRICATED AND IS NO LONGER MAINTAINED
-## REASON: I do not use it anymore.
+# THIS PACKAGE HAS BEEN DEPRECATED, AND IS NO LONGER MAINTAINED.
+## Reason: I don't use it and have no plans to use it in the future.
 ### If you are lookin for an alternative you can use Skoruba's AuditLogging: [GitHub](https://github.com/skoruba/AuditLogging)
 
 # AuditLogging
